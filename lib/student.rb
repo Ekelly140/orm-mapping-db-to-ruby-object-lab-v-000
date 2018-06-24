@@ -1,6 +1,5 @@
 class Student
   attr_accessor :id, :name, :grade
-
   def self.new_from_db(row)
     new_student = self.new
      new_student.id = row[0]
@@ -50,7 +49,7 @@ class Student
      WHERE grade = ?
    SQL
 
-   @all_in_9 = DB[:conn].execute(sql).map do |row|
+     DB[:conn].execute(sql).map do |row|
      self.new_from_db(row)
    end
   end
