@@ -44,17 +44,15 @@ class Student
   end
 
   def self.count_all_students_in_grade_9
-    @all_in_9 = []
     sql = <<-SQL
      SELECT *
      FROM students
      WHERE grade = ?
    SQL
 
-   DB[:conn].execute(sql).map do |row|
-    @all_in_9 << self.new_from_db(row)
+   @all_in_9 = DB[:conn].execute(sql).map do |row|
+     self.new_from_db(row)
    end
-    @all_in_9
   end
 
   def self.create_table
