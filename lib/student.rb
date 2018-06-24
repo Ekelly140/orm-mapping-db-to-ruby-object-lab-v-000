@@ -5,7 +5,6 @@ class Student
     new_student = self.new  # self.new is the same as running Song.new
      new_student.id = row[0]
      new_student.name =  row[1]
-     new_student
    end
 
   def self.all
